@@ -7,6 +7,12 @@ class Term(models.Model):
     """Main entry for a machine learning dictionary term."""
     name = models.CharField(max_length=255, unique=True)
     meaning = models.TextField()
+    meaning_source = models.CharField(
+    max_length=500,
+    blank=True,
+    null=True,
+    help_text="Source of the meaning (optional: book, article, or website URL)"
+)
 
     # Meta info for better admin sorting
     created_at = models.DateTimeField(auto_now_add=True)
